@@ -18,7 +18,7 @@
 
 .checkout-navbar a {
   text-decoration: none;
-  color: #222;
+  color: #222 !important;
   font-size: 14px;
 }
 
@@ -26,6 +26,7 @@
   font-size: 25px !important;
   font-weight: 700;
   letter-spacing: 4px;
+  color: #222 !important;
 }
 
 /* CONTAINER */
@@ -45,7 +46,7 @@
   margin: 0 0 10px;
   font-size: 12px;
   letter-spacing: 3px;
-  color: #777;
+  color: #777 !important;
   font-weight: 600;
 }
 
@@ -54,6 +55,7 @@
   font-size: 44px;
   font-weight: 500;
   letter-spacing: -1px;
+  color: #1d1d1d !important;
 }
 
 /* LAYOUT */
@@ -68,7 +70,8 @@
 /* FORM */
 
 .checkout-form {
-  background: #ffffff;
+  background: #ffffff !important;
+  color: #1d1d1d !important;
   padding: 38px;
   border: 1px solid #e7e4de;
 }
@@ -78,6 +81,14 @@
   margin: 0 0 28px;
   font-size: 22px;
   font-weight: 500;
+  color: #1d1d1d !important;
+}
+
+.checkout-form label {
+  display: block;
+  color: #333 !important;
+  font-size: 13px;
+  margin-bottom: 7px;
 }
 
 .checkout-form input,
@@ -85,7 +96,10 @@
   width: 100%;
   box-sizing: border-box;
   border: 1px solid #d9d6d0;
-  background: #fff;
+  background: #fff !important;
+  color: #181818 !important;
+  -webkit-text-fill-color: #181818 !important;
+  caret-color: #181818 !important;
   padding: 15px 16px;
   margin-bottom: 16px;
   font-family: inherit;
@@ -97,6 +111,12 @@
 .checkout-form input:focus,
 .checkout-form textarea:focus {
   border-color: #222;
+}
+
+.checkout-form input::placeholder,
+.checkout-form textarea::placeholder {
+  color: #999 !important;
+  -webkit-text-fill-color: #999 !important;
 }
 
 .checkout-form textarea {
@@ -114,7 +134,7 @@
 
 .checkout-message {
   margin: 5px 0 18px;
-  color: #b42318;
+  color: #b42318 !important;
   font-size: 13px;
 }
 
@@ -123,8 +143,8 @@
 .place-order-button {
   width: 100%;
   border: none;
-  background: #1d1d1d;
-  color: #ffffff;
+  background: #1d1d1d !important;
+  color: #ffffff !important;
   padding: 17px;
   font-size: 13px;
   font-weight: 600;
@@ -134,7 +154,7 @@
 }
 
 .place-order-button:hover {
-  background: #000;
+  background: #000 !important;
 }
 
 .place-order-button:disabled {
@@ -145,7 +165,8 @@
 /* SUMMARY */
 
 .checkout-summary {
-  background: #ffffff;
+  background: #ffffff !important;
+  color: #1d1d1d !important;
   border: 1px solid #e7e4de;
   padding: 32px;
   position: sticky;
@@ -169,11 +190,12 @@
   margin: 3px 0 8px;
   font-size: 14px;
   font-weight: 600;
+  color: #222 !important;
 }
 
 .checkout-product p {
   margin: 0;
-  color: #777;
+  color: #777 !important;
   font-size: 13px;
 }
 
@@ -190,19 +212,22 @@
   align-items: center;
   margin-bottom: 15px;
   font-size: 14px;
+  color: #333 !important;
 }
 
 .summary-line span:first-child {
-  color: #777;
+  color: #777 !important;
 }
 
 .summary-total {
   margin-top: 22px;
   font-size: 16px;
+  color: #1d1d1d !important;
 }
 
 .summary-total strong {
   font-size: 19px;
+  color: #111 !important;
 }
 
 /* MOBILE */
