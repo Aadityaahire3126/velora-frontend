@@ -28,9 +28,6 @@ function Home() {
             Sign Up
             </a>
 
-          <a href="/cart" className="cart-link">
-            Cart <span>0</span>
-          </a>
         </div>
       </header>
 
