@@ -21,7 +21,6 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/products" element={<Products />} />
-        <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/admin" element={<ProtectedRoute allowedRole="admin"><AdminDashboard /></ProtectedRoute>}/>
         <Route path="/admin/products"element={<ProtectedRoute allowedRole="admin"><AdminProducts /></ProtectedRoute>}/>
