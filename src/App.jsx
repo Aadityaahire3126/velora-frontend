@@ -11,6 +11,7 @@ import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import AdminOrders from "./pages/AdminOrders";
 import Analytics from "./pages/Analytics";
+import About from "./pages/About";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/admin/products"element={<ProtectedRoute allowedRole="admin"><AdminProducts /></ProtectedRoute>}/>
         <Route path="/admin/orders"element={<ProtectedRoute allowedRole="admin"><AdminOrders /></ProtectedRoute>}/>
         <Route path="/admin/analytics"element={<ProtectedRoute allowedRole="admin"><Analytics /></ProtectedRoute>}/>
+        <Route path="/about" element={<About />} />
       </Routes>
     </BrowserRouter>
   );

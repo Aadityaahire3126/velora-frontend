@@ -15,9 +15,9 @@ function Home() {
 
         <nav className="nav-menu">
           <a href="/">Home</a>
-          <a href="/products">Shop</a>
-          <a href="/collections">Collections</a>
-          <a href="/about">About</a>
+         <a href="/products">Shop</a>
+        <a href="/products">Collections</a>
+        <a href="/about">About</a>
         </nav>
 
         <div className="navbar-actions">
