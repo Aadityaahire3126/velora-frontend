@@ -28,6 +28,7 @@ function App() {
         <Route path="/admin/orders"element={<ProtectedRoute allowedRole="admin"><AdminOrders /></ProtectedRoute>}/>
         <Route path="/admin/analytics"element={<ProtectedRoute allowedRole="admin"><Analytics /></ProtectedRoute>}/>
         <Route path="/about" element={<About />} />
+        <Route path="/cart"element={<ProtectedRoute><Cart /></ProtectedRoute>}/>
       </Routes>
     </BrowserRouter>
   );
