@@ -527,3 +527,114 @@
     font-size: 11px;
   }
 }
+
+/* =====================================================
+   ANALYTICS TEXT VISIBILITY FIX
+   ===================================================== */
+
+.analytics-page {
+  background: #f7f7f5 !important;
+  color: #111827 !important;
+}
+
+.analytics-header h1 {
+  color: #111827 !important;
+}
+
+.analytics-header p,
+.analytics-eyebrow {
+  color: #777777 !important;
+}
+
+.analytics-date {
+  background: #ffffff !important;
+  color: #555555 !important;
+}
+
+/* Stats */
+.analytics-stat-card {
+  background: #ffffff !important;
+  color: #111827 !important;
+}
+
+.analytics-stat-card span {
+  color: #777777 !important;
+}
+
+.analytics-stat-card h2 {
+  color: #111827 !important;
+}
+
+.analytics-stat-card p {
+  color: #999999 !important;
+}
+
+/* Cards */
+.analytics-card {
+  background: #ffffff !important;
+  color: #111827 !important;
+}
+
+.analytics-card-header h3 {
+  color: #111827 !important;
+}
+
+.analytics-card-header p {
+  color: #999999 !important;
+}
+
+.analytics-card-header > strong {
+  color: #111827 !important;
+}
+
+/* Category */
+.category-info strong {
+  color: #111827 !important;
+}
+
+.category-info span {
+  color: #999999 !important;
+}
+
+/* Order status */
+.status-row strong {
+  color: #111827 !important;
+}
+
+.status-row small {
+  color: #999999 !important;
+}
+
+.status-row b {
+  color: #111827 !important;
+}
+
+/* Store overview */
+.overview-list div {
+  background: #f7f7f5 !important;
+}
+
+.overview-list span {
+  color: #888888 !important;
+}
+
+.overview-list strong {
+  color: #111827 !important;
+}
+
+/* Product table */
+.product-table-header {
+  color: #999999 !important;
+}
+
+.product-table-row {
+  color: #555555 !important;
+}
+
+.analytics-product-info strong {
+  color: #111827 !important;
+}
+
+.analytics-empty {
+  color: #999999 !important;
+}
