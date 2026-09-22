@@ -24,7 +24,7 @@ const AdminDashboard = () => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/products"
+          "https://velora-backend-34zo.onrender.com/api/products"
         );
 
         setTotalProducts(response.data.length);
@@ -41,7 +41,7 @@ const AdminDashboard = () => {
     const fetchCustomers = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/users"
+          "https://velora-backend-34zo.onrender.com/api/users"
         );
 
         const customers = response.data.filter(
@@ -62,7 +62,7 @@ const AdminDashboard = () => {
     const fetchOrders = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/orders"
+          "https://velora-backend-34zo.onrender.com/api/orders"
         );
 
         const orderData = response.data;

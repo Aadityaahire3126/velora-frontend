@@ -42,7 +42,7 @@ const Signup = () => {
 
   try {
     const response = await axios.post(
-      "http://localhost:5000/api/auth/signup",
+      "https://velora-backend-34zo.onrender.com/api/auth/signup",
       {
         name: formData.name,
         email: formData.email,

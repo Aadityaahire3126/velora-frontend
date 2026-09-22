@@ -9,7 +9,7 @@ const AdminOrders = () => {
   const fetchOrders = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/orders"
+        "https://velora-backend-34zo.onrender.com/api/orders"
       );
 
       setOrders(response.data);
@@ -27,7 +27,7 @@ const AdminOrders = () => {
   const updateStatus = async (id, status) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/orders/${id}`,
+        `https://velora-backend-34zo.onrender.com/api/orders/${id}`,
         { status }
       );
 

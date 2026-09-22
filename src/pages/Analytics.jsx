@@ -18,9 +18,9 @@ const Analytics = () => {
       try {
         const [ordersRes, productsRes, usersRes] =
           await Promise.all([
-            axios.get("http://localhost:5000/api/orders"),
-            axios.get("http://localhost:5000/api/products"),
-            axios.get("http://localhost:5000/api/users"),
+            axios.get("https://velora-backend-34zo.onrender.com/api/orders"),
+            axios.get("https://velora-backend-34zo.onrender.com/api/products"),
+            axios.get("https://velora-backend-34zo.onrender.com/api/users"),
           ]);
 
         const orderData = ordersRes.data;

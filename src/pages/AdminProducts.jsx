@@ -35,7 +35,7 @@ const [editFormData, setEditFormData] = useState({
   const fetchProducts = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/products"
+        "https://velora-backend-34zo.onrender.com/api/products"
       );
 
       setProducts(response.data);
@@ -70,7 +70,7 @@ const [editFormData, setEditFormData] = useState({
 
     try {
       await axios.delete(
-        `http://localhost:5000/api/products/${id}`
+        `https://velora-backend-34zo.onrender.com/api/products/${id}`
       );
 
       // Refresh products after deletion
@@ -124,7 +124,7 @@ const handleEditInputChange = (e) => {
 
   try {
     await axios.post(
-      "http://localhost:5000/api/products",
+      "https://velora-backend-34zo.onrender.com/api/products",
       {
         name: formData.name,
         category: formData.category,
@@ -174,7 +174,7 @@ const handleUpdateProduct = async (e) => {
 
   try {
     await axios.put(
-      `http://localhost:5000/api/products/${editingProductId}`,
+      `https://velora-backend-34zo.onrender.com/api/products/${editingProductId}`,
       {
         name: editFormData.name,
         category: editFormData.category,

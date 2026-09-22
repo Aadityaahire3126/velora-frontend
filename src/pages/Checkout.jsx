@@ -68,7 +68,7 @@ const Checkout = () => {
       );
 
       const response = await axios.post(
-        "http://localhost:5000/api/orders",
+        "https://velora-backend-34zo.onrender.com/api/orders",
         {
           customerId: user?.id || 0,
           customerName: formData.fullName,

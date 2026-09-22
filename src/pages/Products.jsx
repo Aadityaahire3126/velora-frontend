@@ -24,7 +24,7 @@ const Products = () => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/products"
+          "https://velora-backend-34zo.onrender.com/api/products"
         );
 
         setProducts(response.data);
