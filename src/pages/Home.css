@@ -119,10 +119,11 @@
   line-height: 0.98;
   letter-spacing: -4px;
   font-weight: 700;
+  color: #000;
 }
 
 .hero-content h1 span {
-  color: #94755c;
+  color: black;
 }
 
 .hero-text {
