@@ -1,0 +1,529 @@
+.analytics-page {
+  min-height: 100vh;
+  padding: 40px;
+  background: #f7f7f5;
+  color: #111827;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.analytics-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 35px;
+}
+
+.analytics-eyebrow {
+  margin: 0 0 8px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: #777;
+}
+
+.analytics-header h1 {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: -1px;
+}
+
+.analytics-header p {
+  margin: 8px 0 0;
+  color: #777;
+  font-size: 14px;
+}
+
+.analytics-date {
+  padding: 10px 16px;
+  border: 1px solid #dededb;
+  border-radius: 8px;
+  background: #fff;
+  color: #555;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* =========================
+   STAT CARDS
+========================= */
+
+.analytics-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.analytics-stat-card {
+  background: #fff;
+  border: 1px solid #e7e7e4;
+  border-radius: 14px;
+  padding: 24px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.analytics-stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+.analytics-stat-card span {
+  font-size: 12px;
+  color: #777;
+}
+
+.analytics-stat-card h2 {
+  margin: 12px 0 6px;
+  font-size: 27px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+.analytics-stat-card p {
+  margin: 0;
+  font-size: 11px;
+  color: #999;
+}
+
+/* =========================
+   GENERAL CARDS
+========================= */
+
+.analytics-card {
+  background: #fff;
+  border: 1px solid #e7e7e4;
+  border-radius: 14px;
+  padding: 25px;
+}
+
+.analytics-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 25px;
+}
+
+.analytics-card-header h3 {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.analytics-card-header p {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: #999;
+}
+
+.analytics-card-header > strong {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* =========================
+   CHART GRID
+========================= */
+
+.analytics-chart-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 22px;
+  margin-bottom: 22px;
+}
+
+/* =========================
+   MONTHLY REVENUE CHART
+========================= */
+
+.analytics-revenue-card {
+  min-height: 390px;
+}
+
+.analytics-revenue-chart {
+  width: 100%;
+  height: 265px;
+  padding-top: 5px;
+}
+
+.analytics-chart-bars {
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 0 4px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.analytics-chart-column {
+  position: relative;
+  height: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+
+/* Revenue bar */
+
+.analytics-chart-bar {
+  width: 55%;
+  min-height: 5px;
+  border-radius: 6px 6px 2px 2px;
+
+  background: linear-gradient(
+    to top,
+    #111827,
+    #59616d
+  );
+
+  cursor: pointer;
+
+  transition:
+    height 0.4s ease,
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.analytics-chart-bar:hover {
+  transform: scaleX(1.12);
+  opacity: 0.85;
+}
+
+/* Month */
+
+.analytics-chart-column > span {
+  margin-top: 10px;
+  font-size: 10px;
+  color: #888;
+}
+
+/* Tooltip */
+
+.analytics-chart-tooltip {
+  position: absolute;
+  bottom: calc(100% - 5px);
+  left: 50%;
+
+  transform: translateX(-50%) translateY(8px);
+
+  padding: 7px 10px;
+  border-radius: 6px;
+
+  background: #111827;
+  color: #fff;
+
+  font-size: 10px;
+  white-space: nowrap;
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+
+  z-index: 10;
+}
+
+.analytics-chart-column:hover
+  .analytics-chart-tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* =========================
+   CATEGORY SALES
+========================= */
+
+.category-sales {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.category-row {
+  width: 100%;
+}
+
+.category-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 9px;
+}
+
+.category-info strong {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.category-info span {
+  font-size: 11px;
+  color: #999;
+}
+
+.category-progress {
+  width: 100%;
+  height: 7px;
+  overflow: hidden;
+
+  background: #eeeeeb;
+  border-radius: 10px;
+}
+
+.category-progress-fill {
+  height: 100%;
+
+  background: #111827;
+  border-radius: 10px;
+
+  transition: width 0.5s ease;
+}
+
+/* =========================
+   ORDER STATUS + STORE
+========================= */
+
+.analytics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-bottom: 22px;
+}
+
+/* =========================
+   ORDER STATUS
+========================= */
+
+.status-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.status-row {
+  display: grid;
+  grid-template-columns: 10px 1fr auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.status-row strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.status-row small {
+  display: block;
+  margin-top: 3px;
+  color: #999;
+  font-size: 11px;
+}
+
+.status-row b {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.pending {
+  background: #d89b00;
+}
+
+.shipped {
+  background: #497bb5;
+}
+
+.delivered {
+  background: #4d9b68;
+}
+
+.cancelled {
+  background: #c85c5c;
+}
+
+/* =========================
+   STORE OVERVIEW
+========================= */
+
+.overview-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.overview-list div {
+  padding: 18px;
+  border-radius: 10px;
+  background: #f7f7f5;
+  border: 1px solid #eeeeeb;
+}
+
+.overview-list span {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 11px;
+  color: #888;
+}
+
+.overview-list strong {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* =========================
+   PRODUCT PERFORMANCE
+========================= */
+
+.product-performance {
+  margin-bottom: 30px;
+}
+
+.product-analytics-table {
+  width: 100%;
+}
+
+.product-table-header,
+.product-table-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  align-items: center;
+  gap: 20px;
+}
+
+.product-table-header {
+  padding: 12px 15px;
+
+  border-bottom: 1px solid #eee;
+
+  color: #999;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.product-table-row {
+  padding: 15px;
+
+  border-bottom: 1px solid #f0f0f0;
+
+  color: #555;
+  font-size: 13px;
+}
+
+.product-table-row:last-child {
+  border-bottom: none;
+}
+
+.analytics-product-info {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.analytics-product-info img {
+  width: 48px;
+  height: 58px;
+
+  object-fit: cover;
+  border-radius: 7px;
+}
+
+.analytics-product-info strong {
+  color: #111827;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.analytics-empty {
+  padding: 35px 20px;
+
+  text-align: center;
+
+  color: #999;
+  font-size: 13px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1100px) {
+  .analytics-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .analytics-chart-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 800px) {
+  .analytics-page {
+    padding: 25px;
+  }
+
+  .analytics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .analytics-page {
+    padding: 18px;
+  }
+
+  .analytics-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .analytics-header h1 {
+    font-size: 30px;
+  }
+
+  .analytics-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .analytics-chart-bars {
+    gap: 5px;
+  }
+
+  .analytics-chart-bar {
+    width: 70%;
+  }
+
+  .product-table-header,
+  .product-table-row {
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 10px;
+  }
+
+  .analytics-product-info img {
+    width: 38px;
+    height: 48px;
+  }
+
+  .analytics-product-info strong {
+    font-size: 11px;
+  }
+}

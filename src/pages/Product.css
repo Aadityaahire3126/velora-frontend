@@ -1,0 +1,427 @@
+/* ================================
+   VELORA PRODUCTS PAGE
+================================ */
+
+.products-page {
+  min-height: 100vh;
+  background: #f8f7f4;
+  color: #151515;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* ================================
+   NAVBAR
+================================ */
+
+.products-navbar {
+  height: 78px;
+  padding: 0 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f8f7f4;
+  border-bottom: 1px solid #deddd8;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.products-logo {
+  color: #151515;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 4px;
+}
+
+.products-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+}
+
+.products-nav-links a {
+  color: #555;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.25s ease;
+}
+
+.products-nav-links a:hover,
+.products-nav-links a.active {
+  color: #111;
+}
+
+.products-nav-links a.active {
+  font-weight: 600;
+}
+
+.products-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.products-nav-actions a {
+  color: #333;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.nav-signup {
+  padding: 10px 18px;
+  border: 1px solid #222;
+  transition: 0.25s ease;
+}
+
+.nav-signup:hover {
+  background: #222;
+  color: white !important;
+}
+
+.cart-button {
+  border: none;
+  background: transparent;
+  font-size: 13px;
+  cursor: pointer;
+  color: #222;
+}
+
+
+/* ================================
+   SHOP HEADER
+================================ */
+
+.shop-header {
+  text-align: center;
+  padding: 95px 20px 65px;
+  max-width: 850px;
+  margin: auto;
+}
+
+.shop-eyebrow {
+  font-size: 11px;
+  letter-spacing: 3px;
+  font-weight: 600;
+  color: #777;
+  margin-bottom: 22px;
+}
+
+.shop-header h1 {
+  margin: 0;
+  font-size: clamp(42px, 6vw, 72px);
+  line-height: 1.05;
+  font-weight: 500;
+  letter-spacing: -2px;
+}
+
+.shop-header h1 span {
+  font-style: italic;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+
+.shop-description {
+  max-width: 540px;
+  margin: 25px auto 0;
+  color: #777;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+
+/* ================================
+   CONTROLS
+================================ */
+
+.shop-controls {
+  width: 88%;
+  max-width: 1400px;
+  margin: 0 auto 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-top: 1px solid #deddd8;
+  border-bottom: 1px solid #deddd8;
+
+  padding: 20px 0;
+}
+
+.category-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.category-buttons button {
+  border: 1px solid transparent;
+  background: transparent;
+  color: #777;
+  padding: 9px 17px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.category-buttons button:hover {
+  color: #111;
+}
+
+.category-buttons button.category-active {
+  background: #151515;
+  color: white;
+}
+
+.product-count {
+  color: #777;
+  font-size: 12px;
+  margin: 0;
+}
+
+
+/* ================================
+   PRODUCT GRID
+================================ */
+
+.product-grid {
+  width: 88%;
+  max-width: 1400px;
+  margin: 0 auto 100px;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 26px;
+}
+
+
+/* ================================
+   PRODUCT CARD
+================================ */
+
+.product-card {
+  min-width: 0;
+}
+
+.product-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  background: #e9e7e1;
+  aspect-ratio: 3 / 4;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+
+  transition: transform 0.6s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.045);
+}
+
+
+/* ================================
+   QUICK ADD
+================================ */
+
+.quick-add {
+  position: absolute;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+
+  height: 48px;
+
+  border: none;
+  background: rgba(255, 255, 255, 0.95);
+  color: #111;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  opacity: 0;
+  transform: translateY(12px);
+
+  transition: all 0.3s ease;
+}
+
+.product-card:hover .quick-add {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.quick-add:hover {
+  background: #151515;
+  color: white;
+}
+
+
+/* ================================
+   PRODUCT INFORMATION
+================================ */
+
+.product-info {
+  padding: 17px 2px 0;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.product-category {
+  margin: 0 0 7px;
+
+  color: #999;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.product-info h3 {
+  margin: 0;
+
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.product-price {
+  margin: 0;
+
+  white-space: nowrap;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+
+/* ================================
+   TABLET
+================================ */
+
+@media (max-width: 1000px) {
+  .products-navbar {
+    padding: 0 4%;
+  }
+
+  .products-nav-links {
+    gap: 20px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+    width: 92%;
+  }
+
+  .shop-controls {
+    width: 92%;
+  }
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 700px) {
+  .products-navbar {
+    height: auto;
+    padding: 18px 5%;
+
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+
+  .products-nav-links {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    gap: 22px;
+  }
+
+  .products-nav-actions {
+    gap: 10px;
+  }
+
+  .products-nav-actions a:first-child {
+    display: none;
+  }
+
+  .shop-header {
+    padding: 65px 20px 45px;
+  }
+
+  .shop-header h1 {
+    font-size: 44px;
+  }
+
+  .shop-description {
+    font-size: 14px;
+  }
+
+  .shop-controls {
+    width: 90%;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .product-grid {
+    width: 90%;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .product-info {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .product-price {
+    font-size: 13px;
+  }
+
+  .quick-add {
+    opacity: 1;
+    transform: none;
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    margin-top: -48px;
+    z-index: 2;
+  }
+}
+
+
+/* ================================
+   SMALL MOBILE
+================================ */
+
+@media (max-width: 450px) {
+  .products-logo {
+    font-size: 20px;
+  }
+
+  .products-nav-links {
+    font-size: 12px;
+  }
+
+  .shop-header h1 {
+    font-size: 37px;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}
