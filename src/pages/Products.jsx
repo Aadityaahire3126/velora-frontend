@@ -151,8 +151,7 @@ const Products = () => {
         </p>
 
         <h1 >
-          Designed for
-          <span> everyday living.</span>
+          <span> Designed for everyday living.</span>
         </h1>
 
         <p className="shop-description">
