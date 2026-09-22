@@ -150,7 +150,7 @@ const Products = () => {
           THE VELORA COLLECTION
         </p>
 
-        <h1>
+        <h1 >
           Designed for
           <span> everyday living.</span>
         </h1>
