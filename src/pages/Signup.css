@@ -322,6 +322,19 @@
   color: #181818;
 }
 
+.auth-form input {
+  color: #111 !important;
+  -webkit-text-fill-color: #111 !important;
+  background: #fff;
+}
+
+.auth-form input::placeholder {
+  color: #999;
+}
+input[type="password"] {
+  color: #111 !important;
+  -webkit-text-fill-color: #111 !important;
+}
 
 /* ================================
    RESPONSIVE
