@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
-import { API_URL } from "../config";
-
+import {
+  signInWithEmailAndPassword,
+  sendEmailVerification,
+  signOut,
+} from "firebase/auth";
+import { auth } from "../firebase";
 const Login = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -23,51 +26,99 @@ const Login = () => {
     setMessage("");
   };
 
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formData.email || !formData.password) {
+    const email = formData.email.trim().toLowerCase();
+    const password = formData.password;
+
+    if (!email || !password) {
       setMessage("Please enter your email and password.");
       return;
     }
 
-    try {
-  const response = await axios.post(
-`${API_URL}/api/auth/login`,    {
-      email: formData.email,
-      password: formData.password,
+    console.log("LOGIN EMAIL:", email);
+console.log("ADMIN FLOW:", email === "admin@velora.com");
+
+    // ADMIN: authenticate using MongoDB
+    if (email === "admin@velora.com") {
+      try {
+        const response = await fetch(
+          `${import.meta.env.VITE_API_URL}/api/auth/login`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email, password }),
+          }
+        );
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          setMessage(data.message || "Invalid admin email or password.");
+          return;
+        }
+
+        if (data.user?.role !== "admin") {
+          setMessage("This account is not an admin account.");
+          return;
+        }
+
+        localStorage.setItem("user", JSON.stringify(data.user));
+        navigate("/admin");
+      } catch (error) {
+        console.error("Admin Login Error:", error);
+        setMessage("Unable to connect to server. Please try again.");
+      }
+
+      return;
     }
-  );
 
-  console.log("LOGIN RESPONSE:", response.data);
+    // CUSTOMER: authenticate using Firebase
+    try {
+      const result = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
 
-  localStorage.setItem(
-    "user",
-    JSON.stringify(response.data.user)
-  );
+      const user = result.user;
 
-  console.log(
-    "SAVED USER:",
-    JSON.parse(localStorage.getItem("user"))
-  );
+      if (!user.emailVerified) {
+        await signOut(auth);
+        setMessage("Please verify your email before logging in.");
+        return;
+      }
 
-  if (response.data.user.role === "admin") {
-    console.log("ADMIN DETECTED");
-    navigate("/admin");
-  } else {
-    console.log("CUSTOMER DETECTED");
-    navigate("/products");
-  }
+      const userData = {
+        uid: user.uid,
+        name: user.displayName || "",
+        email: user.email,
+        role: "customer",
+      };
 
-} catch (error) {
-  console.error("Login Error:", error);
+      localStorage.setItem("user", JSON.stringify(userData));
+      navigate("/products");
+    } catch (error) {
+      console.error("Firebase Login Error:", error.code);
 
-  setMessage(
-    error.response?.data?.message ||
-    "Unable to connect to server."
-  );
-}
-  }
+      const messages = {
+        "auth/invalid-credential": "Invalid email or password.",
+        "auth/user-not-found": "No account found. Please sign up first.",
+        "auth/wrong-password": "Invalid email or password.",
+        "auth/invalid-email": "Please enter a valid email address.",
+        "auth/too-many-requests": "Too many attempts. Please try again later.",
+        "auth/network-request-failed": "Network error. Please try again.",
+      };
+
+      setMessage(
+        messages[error.code] || "Unable to sign in. Please try again."
+      );
+    }
+  };
 
   return (
     <div className="login-page">

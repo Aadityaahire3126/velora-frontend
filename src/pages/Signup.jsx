@@ -1,6 +1,11 @@
 import React, { useState } from "react";
-import axios from "axios"
 import "./Signup.css";
+import {
+  createUserWithEmailAndPassword,
+  updateProfile,
+  sendEmailVerification,
+} from "firebase/auth";
+import { auth } from "../firebase";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -26,8 +31,8 @@ const Signup = () => {
   e.preventDefault();
 
   if (
-    !formData.name ||
-    !formData.email ||
+    !formData.name.trim() ||
+    !formData.email.trim() ||
     !formData.password ||
     !formData.confirmPassword
   ) {
@@ -40,24 +45,60 @@ const Signup = () => {
     return;
   }
 
+  if (formData.password.length < 6) {
+    setMessage("Password must be at least 6 characters.");
+    return;
+  }
+
+  let createdUser = null;
+
   try {
-    const response = await axios.post(
-      "https://velora-backend-34zo.onrender.com/api/auth/signup",
-      {
-        name: formData.name,
-        email: formData.email,
-        password: formData.password,
-      }
+    const result = await createUserWithEmailAndPassword(
+      auth,
+      formData.email.trim(),
+      formData.password
     );
 
-    setMessage(response.data.message);
+    createdUser = result.user;
 
-    console.log("Signup Response:", response.data);
+    await updateProfile(createdUser, {
+      displayName: formData.name.trim(),
+    });
 
-  } catch (error) {
+    await sendEmailVerification(createdUser);
+
     setMessage(
-      error.response?.data?.message ||
-      "Unable to connect to server."
+      "Account created! Please verify your email using the link we sent you before logging in."
+    );
+
+    setFormData({
+      name: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    });
+  } catch (error) {
+    console.error("Firebase Signup Error:", error.code);
+
+    // Avoid leaving a newly created but unverified user signed in
+    if (createdUser) {
+      try {
+        await (await import("firebase/auth")).signOut(auth);
+      } catch (signOutError) {
+        console.error("Sign-out error:", signOutError.code);
+      }
+    }
+
+    const messages = {
+      "auth/email-already-in-use": "This email is already registered. Please log in.",
+      "auth/invalid-email": "Please enter a valid email address.",
+      "auth/weak-password": "Please choose a stronger password.",
+      "auth/operation-not-allowed": "Email/Password authentication is not enabled.",
+      "auth/network-request-failed": "Network error. Please try again.",
+    };
+
+    setMessage(
+      messages[error.code] || "Unable to create account. Please try again."
     );
   }
 };
